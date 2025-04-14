@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#A259FF',
+                        dark: '#1E1E1E',
+                        sidebar: '#2C2C2C',
+                        hover: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .login-container {
+            background: linear-gradient(145deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        .custom-shadow {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <!-- Login Page -->
+    <div id="loginPage" class="min-h-screen flex items-center justify-center p-4">
+        <div class="login-container rounded-xl p-8 w-full max-w-md custom-shadow">
+            <div class="text-center mb-8">
+                <i class="bi bi-pentagon-half text-primary text-4xl"></i>
+                <h1 class="text-2xl font-semibold mt-4">Welcome to Design App</h1>
+            </div>
+            
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-2 rounded-lg bg-sidebar border border-gray-700 focus:border-primary focus:outline-none" required>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2">Password</label>
+                    <input type="password" class="w-full px-4 py-2 rounded-lg bg-sidebar border border-gray-700 focus:border-primary focus:outline-none" required>
+                </div>
+                
+                <div class="text-right">
+                    <a href="#" class="text-sm text-primary hover:text-primary/80">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white py-2 rounded-lg transition-colors">
+                    Log in
+                </button>
+                
+                <div class="relative my-6">
+                    <hr class="border-gray-700">
+                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-dark px-4 text-gray-500 text-sm">or</span>
+                </div>
+                
+                <button type="button" class="w-full border border-gray-700 hover:bg-hover py-2 rounded-lg flex items-center justify-center gap-2">
+                    <i class="bi bi-google"></i>
+                    Continue with Google
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Workspace (Hidden by default) -->
+    <div id="workspace" class="hidden h-screen flex flex-col">
+        <!-- Top Navigation -->
+        <nav class="bg-sidebar px-4 py-2 flex items-center justify-between border-b border-gray-700">
+            <div class="flex items-center gap-4">
+                <i class="bi bi-pentagon-half text-primary text-2xl"></i>
+                <div class="flex items-center gap-2">
+                    <span class="font-medium">Untitled</span>
+                    <i class="bi bi-chevron-down"></i>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="px-3 py-1 rounded hover:bg-hover"><i class="bi bi-play-fill"></i></button>
+                <button class="px-3 py-1 rounded hover:bg-hover"><i class="bi bi-share"></i></button>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                    <span class="text-sm font-medium">JD</span>
+                </div>
+            </div>
+        </nav>
+
+        <div class="flex-1 flex">
+            <!-- Left Sidebar -->
+            <div class="w-64 bg-sidebar border-r border-gray-700 flex flex-col">
+                <div class="p-4">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="font-medium">Layers</span>
+                        <button class="text-gray-400 hover:text-white"><i class="bi bi-plus-lg"></i></button>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="px-3 py-2 rounded hover:bg-hover cursor-pointer flex items-center gap-2">
+                            <i class="bi bi-square"></i>
+                            <span>Rectangle 1</span>
+                        </div>
+                        <div class="px-3 py-2 rounded hover:bg-hover cursor-pointer flex items-center gap-2">
+                            <i class="bi bi-circle"></i>
+                            <span>Ellipse 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Canvas Area -->
+            <div class="flex-1 bg-dark relative">
+                <!-- Toolbar -->
+                <div class="absolute top-4 left-1/2 -translate-x-1/2 bg-sidebar rounded-lg shadow-lg flex items-center gap-2 p-1">
+                    <button class="p-2 rounded hover:bg-hover"><i class="bi bi-cursor"></i></button>
+                    <button class="p-2 rounded hover:bg-hover"><i class="bi bi-square"></i></button>
+                    <button class="p-2 rounded hover:bg-hover"><i class="bi bi-circle"></i></button>
+                    <button class="p-2 rounded hover:bg-hover"><i class="bi bi-type"></i></button>
+                    <button class="p-2 rounded hover:bg-hover"><i class="bi bi-pencil"></i></button>
+                </div>
+            </div>
+
+            <!-- Right Properties Panel -->
+            <div class="w-64 bg-sidebar border-l border-gray-700 p-4">
+                <h3 class="font-medium mb-4">Properties</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Position</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="number" value="0" class="bg-dark border border-gray-700 rounded px-2 py-1 text-sm">
+                            <input type="number" value="0" class="bg-dark border border-gray-700 rounded px-2 py-1 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm text-gray-400 mb-2">Size</label>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="number" value="100" class="bg-dark border border-gray-700 rounded px-2 py-1 text-sm">
+                            <input type="number" value="100" class="bg-dark border border-gray-700 rounded px-2 py-1 text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('workspace').classList.remove('hidden');
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
